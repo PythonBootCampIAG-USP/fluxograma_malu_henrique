@@ -1,0 +1,57 @@
+%\title{Branching arrows with decision option in flowchart}
+% From http://latex-community.org/forum/viewtopic.php?f=45&t=24006
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc} 
+\usepackage[english, portuguese]{babel}
+%\usepackage{simpsons}
+\usetikzlibrary{arrows,calc,positioning}
+
+\tikzstyle{intt}=[draw,text centered,minimum size=6em,text width=5.25cm,text height=0.34cm]
+\tikzstyle{intl}=[draw,text centered,minimum size=2em,text width=2.75cm,text height=0.34cm]
+\tikzstyle{int}=[draw,minimum size=2.5em,text centered,text width=3.5cm]
+\tikzstyle{intg}=[draw,minimum size=3em,text centered,text width=6.cm]
+\tikzstyle{sum}=[draw,shape=circle,inner sep=2pt,text centered,node distance=3.5cm]
+\tikzstyle{summ}=[drawshape=circle,inner sep=4pt,text centered,node distance=3.cm]
+
+\begin{document}
+  \thispagestyle{empty}
+  \begin{figure}[!htb]
+    \centering
+    \begin{tikzpicture}[
+      >=latex',
+      auto
+    ]
+      \node [intg] (kp1) {\textbf{Problema}: \\ \bigskip  Quais são os meus dados?};
+      \node [intg] (kp2) [node distance=2.2cm,below of=kp1] {O que fazer com eles?};
+      \node [int]  (malu1) [node distance=2.2cm and -1cm,below left=of kp2] {\textbf{Input:} \\  arquivo.\textbf{txt}};
+      \node [int]  (malu2) [node distance=1.4cm,below=of malu1] {Ler arquivo.\textbf{txt}};
+      \node [int]  (malu3) [node distance=1.4cm,below=of malu2] {Interpretar arquivo.\textbf{txt} \\ Dados em mãos};
+      \node [int]  (malu4) [node distance=1.4cm,below=of malu3] {Manipular meus dados};
+      \node [int]  (malu5) [node distance=1.4cm,below=of malu4] {Visualizar os dados \\ Plots, prints, etc.};
+      \node [int]  (henrique1) [node distance=2.2cm and -1cm,below right=of kp2] {\textbf{Input:} \\  arquivos.\textbf{fits}};
+      \node [int]  (henrique2) [node distance=1.4cm,below=of henrique1] {Ler arquivos.\textbf{fits}};
+      \node [int]  (henrique3) [node distance=1.4cm,below=of henrique2] {Reduzir \\ arquivos.\textbf{fits} \\ Dados em mãos};
+      \node [int]  (henrique4) [node distance=1.4cm,below=of henrique3] {Manipular meus dados};
+      \node [int]  (henrique5) [node distance=1.4cm,below=of henrique4] {Visualizar os dados \\ Imagem final};
+      \node [intg] (kp3) [node distance=15cm,below of=kp2] {Resultado das manipulações};
+      \node [intg] (kp4) [node distance=3cm,below of=kp3] {Publicações! \\ \medskip Fama e Riqueza! \\ \medskip (Nobel?)};
+      
+      \draw[->] (kp1) -- (kp2);
+      \draw[->] (kp2) -- ($(kp2.south)+(0,-0.9)$) -| (malu1) node[above,pos=0.25] {Dados numéricos} ;
+      \draw[->] (kp2) -- ($(kp2.south)+(0,-0.9)$) -| (henrique1) node[above,pos=0.25] {Imagens};
+      \draw[->] (malu1) -- (malu2);
+      \draw[->] (malu2) -- (malu3);
+      \draw[->] (malu3) -- (malu4);      
+      \draw[->] (malu4) -- (malu5);      
+      \draw[->] (malu5) |- (kp3);
+      \draw[->] (henrique1) -- (henrique2);
+      \draw[->] (henrique2) -- (henrique3);
+      \draw[->] (henrique3) -- (henrique4);      
+      \draw[->] (henrique4) -- (henrique5);
+      \draw[->] (henrique5) |- (kp3);
+      \draw[->] (kp3) -- (kp4);
+    \end{tikzpicture}
+  \end{figure}
+\end{document}
