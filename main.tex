@@ -1,12 +1,14 @@
 %\title{Branching arrows with decision option in flowchart}
 % From http://latex-community.org/forum/viewtopic.php?f=45&t=24006
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
 \usepackage[utf8]{inputenc} 
 \usepackage[english, portuguese]{babel}
 %\usepackage{simpsons}
 \usetikzlibrary{arrows,calc,positioning}
+\usepackage{fontspec}
+\setmainfont{Arial}
 
 \tikzstyle{intt}=[draw,text centered,minimum size=6em,text width=5.25cm,text height=0.34cm]
 \tikzstyle{intl}=[draw,text centered,minimum size=2em,text width=2.75cm,text height=0.34cm]
@@ -35,7 +37,7 @@
       \node [int]  (henrique3) [node distance=1.4cm,below=of henrique2] {Reduzir \\ arquivos.\textbf{fits} \\ Dados em mãos};
       \node [int]  (henrique4) [node distance=1.4cm,below=of henrique3] {Manipular meus dados};
       \node [int]  (henrique5) [node distance=1.4cm,below=of henrique4] {Visualizar os dados \\ Imagem final};
-      \node [intg] (kp3) [node distance=15cm,below of=kp2] {Resultado das manipulações};
+      \node [intg] (kp3) [node distance=16cm,below of=kp2] {Resultado das manipulações};
       \node [intg] (kp4) [node distance=3cm,below of=kp3] {Publicações! \\ \medskip Fama e Riqueza! \\ \medskip (Nobel?)};
       
       \draw[->] (kp1) -- (kp2);
